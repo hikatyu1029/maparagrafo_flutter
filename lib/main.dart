@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kazisuru_test/view/map_view.dart';
 import 'package:kazisuru_test/view/profile_view.dart';
+import 'package:kazisuru_test/view/select_image_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   static List<Widget> _pageList = [
     MapView(),
+    SelectImageView(),
     ProfileView(),
   ];
 
@@ -39,7 +41,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('サンプル1'),
+        title: const Text(
+          'Profile',
+          style: TextStyle(color: Colors.grey),
+        ),
+        backgroundColor: Colors.white,
       ),
       body: _pageList[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -48,6 +54,10 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
             title: Text('Map'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera_alt_outlined),
+            title: Text('Add'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_outlined),
